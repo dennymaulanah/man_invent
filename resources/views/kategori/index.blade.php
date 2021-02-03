@@ -11,7 +11,7 @@
 							<!-- TABLE HOVER -->
 							<div class="panel">
 								<div class="panel-heading">
-                                    <h3 class="panel-title">Data Users</h3>
+                                    <h3 class="panel-title">Data Kategori</h3>
                                     <div class="right">
                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                             <i class="lnr lnr-plus-circle"></i>
@@ -24,30 +24,19 @@
 											<tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Role</th>
                                                 <th>Aksi</th>
 											</tr>
 										</thead>
 										<tbody>
                                             <?php $no = 0;?>
-                                            @foreach($data_users as $users)
+                                            @foreach($data_kategori as $kategori)
                                             <?php $no++ ;?>
                                             <tr>
                                                 <td>{{$no}}</td>
-                                                <td>{{$users->name}}</td>
-                                                <td>{{$users->username}}</td>
-                                                <td>{{$users->password}}</td>
+                                                <td>{{$kategori->nama}}</td>
                                                 <td>
-                                                    @if($users->role == '1') Super Admin
-                                                    @elseif($users->role == '2') Manager
-                                                    @elseif($users->role == '3') Staff
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <a href="/users/{{$users->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                    <a href="/users/{{$users->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ?')">Delete</a>
+                                                    <a href="/kategori/{{$kategori->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="/kategori/{{$kategori->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ?')">Delete</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -67,34 +56,19 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form action="/users/create" method="POST">
+                    <form action="/kategori/create" method="POST">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1">Nama</label>
+                        <input name="nama" type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama" aria-describedby="emailHelp">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Username</label>
-                        <input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input name="password" type="password" class="form-control" placeholder="Password" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Role</label>
-                        <select name="role" class="form-control" id="example">
-                            <option value="1">Super Admin</option>
-                            <option value="2">Manager</option>
-                            <option value="3">Staff</option>
-                        </select>
-                    </div>
+                    
                     
                     </div>
                     <div class="modal-footer">
