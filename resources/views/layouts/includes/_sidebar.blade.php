@@ -11,7 +11,15 @@
 						@endif
 						
 						@if(auth()->user()->role == '2')
-						<li><a href="/laporan" class=""><i class="lnr lnr-user"></i> <span>Laporan</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Laporan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul class="nav">
+									<li><a href="/laporan-barang" class="">Barang</a></li>
+									<li><a href="/laporan-ruangan" class="">Ruangan</a></li>
+								</ul>
+							</div>
+						</li>
 						@endif
 
 						<li><a href="/barang" class=""><i class="lnr lnr-user"></i> <span>Barang</span></a></li>

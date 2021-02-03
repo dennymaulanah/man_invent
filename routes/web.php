@@ -67,4 +67,14 @@ Route::group(['middleware'=> ['auth','checkRole:2']], function(){
     Route::get('/staff/{id}/edit','StaffController@edit');
     Route::post('/staff/{id}/update','StaffController@update');
     Route::get('/staff/{id}/delete','StaffController@delete');
+
+    Route::get('/laporan-barang', 'LaporanController@laporanBarang');
+    Route::get('/barang-pdf', 'LaporanController@barangPDF');
+    Route::get('/barang-excel', 'LaporanController@barangExcel');
+    
+    Route::get('/laporan-ruangan', 'LaporanController@laporanRuangan');
+    Route::get('/ruangan-pdf', 'LaporanController@ruanganPDF');
+    Route::get('/ruangan-excel', 'LaporanController@ruanganExcel');
+
+    
 });

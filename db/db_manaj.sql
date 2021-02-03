@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 03:31 PM
+-- Generation Time: Feb 03, 2021 at 07:57 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -161,7 +161,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
 (7, 'Staff', 'staff', '$2y$10$DKvl2K2SgdaQQ7w.b5g5iOg.pS/eyQsfBIoE8L8z9RWs3q4F5R1Bi', 3),
 (8, 'SuperAdmin', 'superadmin', '$2y$10$FGlwJoJOcLt9rINv8J.krOiqLkOQ28ZJo/mVHlW0XV.oS/P.bmSUy', 1),
-(9, 'Manager', 'manager', '$2y$10$JvTqGB6o0tpCeN.px5YfPeSIn6IDfmRzIEcQE3l/wggBNagr3dVpu', 2);
+(9, 'Manager', 'manager', '$2y$10$JvTqGB6o0tpCeN.px5YfPeSIn6IDfmRzIEcQE3l/wggBNagr3dVpu', 2),
+(10, 'Staff2', 'staff2', '$2y$10$NpH95O2mENOAYASiZ2.GUesm/uHfML/oEAhlMqGmQxDPViKvgvGHi', 3);
 
 --
 -- Indexes for dumped tables
@@ -248,7 +249,7 @@ ALTER TABLE `ruangan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
