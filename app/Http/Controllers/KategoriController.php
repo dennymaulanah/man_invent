@@ -16,10 +16,7 @@ class KategoriController extends Controller
 
     public function create(Request $request)
     {
-        // bcrypt 
-        // \App\Users::create($data->all());
-        //DB::table('users')->insert(['name'=>$request->name,'username'=>$request->username,'password'=>Hash::make($request->password),'role'=>$request->role]);
-        
+
         \App\Kategori::create($request->all());
         return redirect('/kategori')->with('success', 'Data berhasil diinput');
 

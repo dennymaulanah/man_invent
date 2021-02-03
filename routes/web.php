@@ -47,4 +47,11 @@ Route::group(['middleware'=> ['auth','checkRole:1,2']], function(){
 
 Route::group(['middleware'=> ['auth','checkRole:1,2,3']], function(){
     Route::get('/dashboard','DashboardController@index');
+
+    
+    Route::get('/barang', 'BarangController@index');
+    Route::post('/barang/create', 'BarangController@create');
+    Route::get('/barang/{id}/edit','BarangController@edit');
+    Route::post('/barang/{id}/update','BarangController@update');
+    Route::get('/barang/{id}/delete','BarangController@delete');
 });

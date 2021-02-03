@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 11:43 AM
+-- Generation Time: Feb 03, 2021 at 02:04 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `barang`
+--
+
+CREATE TABLE `barang` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`id`, `nama`, `kategori`, `jumlah`) VALUES
+(2, 'Handphone', 'Elektronik', 10),
+(3, 'Komputer', 'Elektronik', 21),
+(4, 'Sepeda Motor', 'Kendaraan', 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -35,6 +57,27 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `nama`) VALUES
+(2, 'Pakaian'),
+(3, 'Elektronik'),
+(4, 'Makanan'),
+(5, 'Kendaraan');
 
 -- --------------------------------------------------------
 
@@ -55,7 +98,9 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2014_10_12_000000_create_users_table', 1),
 (5, '2014_10_12_100000_create_password_resets_table', 1),
-(6, '2019_08_19_000000_create_failed_jobs_table', 1);
+(6, '2019_08_19_000000_create_failed_jobs_table', 1),
+(8, '2021_02_03_111054_create_kategori_table', 2),
+(9, '2021_02_03_115838_create_barang_table', 3);
 
 -- --------------------------------------------------------
 
@@ -97,9 +142,21 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
 --
 
 --
+-- Indexes for table `barang`
+--
+ALTER TABLE `barang`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -126,16 +183,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
