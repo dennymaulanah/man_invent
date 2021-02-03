@@ -11,7 +11,7 @@
 							<!-- TABLE HOVER -->
 							<div class="panel">
 								<div class="panel-heading">
-                                    <h3 class="panel-title">Data Barang</h3>
+                                    <h3 class="panel-title">Data Ruangan</h3>
                                     <div class="right">
                                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
                                             <i class="lnr lnr-plus-circle"></i>
@@ -31,16 +31,16 @@
 										</thead>
 										<tbody>
                                             <?php $no = 0;?>
-                                            @foreach($data_barang as $barang)
+                                            @foreach($data_ruangan as $ruangan)
                                             <?php $no++ ;?>
                                             <tr>
                                                 <td>{{$no}}</td>
-                                                <td>{{$barang->nama}}</td>
-                                                <td>{{$barang->kategori}}</td>
-                                                <td>{{$barang->jumlah}}</td>
+                                                <td>{{$ruangan->nama}}</td>
+                                                <td>{{$ruangan->kategori}}</td>
+                                                <td>{{$ruangan->jumlah}}</td>
                                                 <td>
-                                                    <a href="/barang/{{$barang->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                    <a href="/barang/{{$barang->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ?')">Delete</a>
+                                                    <a href="/ruangan/{{$ruangan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="/ruangan/{{$ruangan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ?')">Delete</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -60,13 +60,13 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Barang</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Ruangan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form action="/barang/create" method="POST">
+                    <form action="/ruangan/create" method="POST">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama</label>

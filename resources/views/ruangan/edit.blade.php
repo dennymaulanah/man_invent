@@ -11,27 +11,27 @@
                                     <h3 class="panel-title">Edit Ruangan</h3>
 								</div>
 								<div class="panel-body">
-									<form action="/barang/{{$barang->id}}/update" method="POST">
+									<form action="/ruangan/{{$ruangan->id}}/update" method="POST">
                                             {{csrf_field()}}
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Nama</label>
-                                                <input name="nama" value="{{$barang->nama}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama" aria-describedby="emailHelp">
+                                                <input name="nama" value="{{$ruangan->nama}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama" aria-describedby="emailHelp">
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Kategori</label>
                                                 <select name="kategori" class="form-control" id="example">
                                                     @foreach($kategori as $kategori)
-                                                    <option value="{{$kategori->nama}}" {{ $kategori->nama == $barang->kategori ? 'selected' : ''  }} >{{$kategori->nama}}</option>
+                                                    <option value="{{$kategori->nama}}" {{ $kategori->nama == $ruangan->kategori ? 'selected' : ''  }} >{{$kategori->nama}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Jumlah</label>
-                                                <input name="jumlah" value="{{$barang->jumlah}}"  type="text" class="form-control" id="exampleInputEmail1" placeholder="Jumlah" aria-describedby="emailHelp">
+                                                <input name="jumlah" value="{{$ruangan->jumlah}}"  type="text" class="form-control" id="exampleInputEmail1" placeholder="Jumlah" aria-describedby="emailHelp">
                                             </div>
                                             <button type="submit" class="btn btn-warning">Update</button>
-                                            <button href="/barang" class="btn btn-primary">Kembali</button>
+                                            <button href="/ruangan" class="btn btn-primary">Kembali</button>
                                     </form>
 								</div>
 							</div>

@@ -54,4 +54,10 @@ Route::group(['middleware'=> ['auth','checkRole:1,2,3']], function(){
     Route::get('/barang/{id}/edit','BarangController@edit');
     Route::post('/barang/{id}/update','BarangController@update');
     Route::get('/barang/{id}/delete','BarangController@delete');
+
+    Route::get('/ruangan', 'RuanganController@index');
+    Route::post('/ruangan/create', 'RuanganController@create');
+    Route::get('/ruangan/{id}/edit','RuanganController@edit');
+    Route::post('/ruangan/{id}/update','RuanganController@update');
+    Route::get('/ruangan/{id}/delete','RuanganController@delete');
 });

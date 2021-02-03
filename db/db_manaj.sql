@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 02:04 PM
+-- Generation Time: Feb 03, 2021 at 03:31 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -77,7 +77,11 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 (2, 'Pakaian'),
 (3, 'Elektronik'),
 (4, 'Makanan'),
-(5, 'Kendaraan');
+(5, 'Kendaraan'),
+(6, 'Ruangan'),
+(7, 'Aula'),
+(8, 'Kamar'),
+(9, 'Dapur');
 
 -- --------------------------------------------------------
 
@@ -100,7 +104,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2014_10_12_100000_create_password_resets_table', 1),
 (6, '2019_08_19_000000_create_failed_jobs_table', 1),
 (8, '2021_02_03_111054_create_kategori_table', 2),
-(9, '2021_02_03_115838_create_barang_table', 3);
+(9, '2021_02_03_115838_create_barang_table', 3),
+(10, '2021_02_03_131355_create_ruangan_table', 4);
 
 -- --------------------------------------------------------
 
@@ -113,6 +118,27 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ruangan`
+--
+
+CREATE TABLE `ruangan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ruangan`
+--
+
+INSERT INTO `ruangan` (`id`, `nama`, `kategori`, `jumlah`) VALUES
+(1, 'Ruang Rapat', 'Ruangan', 2),
+(2, 'Dapur', 'Ruangan', 1);
 
 -- --------------------------------------------------------
 
@@ -172,6 +198,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `ruangan`
+--
+ALTER TABLE `ruangan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -198,13 +230,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `ruangan`
+--
+ALTER TABLE `ruangan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
